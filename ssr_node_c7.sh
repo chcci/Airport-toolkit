@@ -86,7 +86,6 @@ if [ -d "/soft/shadowsocks" ]; then
 	done
 fi
 echo "Updatin exsit package..."
-yum clean all && rm -rf /var/cache/yum && yum update -y
 echo "Configurating EPEL release..."
 yum install epel-release -y && yum makecache
 echo "Install necessary package..."
@@ -94,7 +93,7 @@ yum install git net-tools htop ntp -y
 echo "Disabling firewalld..."
 systemctl stop firewalld && systemctl disable firewalld
 echo "Setting system timezone..."
-timedatectl set-timezone Asia/Taipei && systemctl stop ntpd.service && ntpdate us.pool.ntp.org
+timedatectl set-timezone Asia/Shanghai && systemctl stop ntpd.service && ntpdate us.pool.ntp.org
 echo "Installing libsodium..."
 yum install libsodium -y
 echo "Installing Python3.6..."
